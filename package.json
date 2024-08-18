@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --config webpack.prod.js",
     "watch": "webpack --watch",
-    "push": "git ssubtree push --prefix dist origin gh-pages"
+    "dev": "webpack serve --config webpack.dev.js",
+    "deploy": "git ssubtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,8 @@
     "html-webpack-plugin": "^5.6.0",
     "style-loader": "^4.0.0",
     "webpack": "^5.92.1",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4",
+    "webpack-merge": "^6.0.1"
   }
 }
