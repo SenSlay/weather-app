@@ -17,9 +17,22 @@ async function getLocationData(city) {
     //     });
 
     // Async/Await Implementation
-    const response =  await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=FNMEC42CA9CLAVPZ58JSRLYG8`);
-    const data = await response.json();
-    console.log(data);
+    try {
+        const response =  await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=FNMEC42CA9CLAVPZ58JSRLYG8`);
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.log('City not valid');
+    }
 }
 
-getLocationData("Manila");
+const form = document.getElementById('form');
+
+form.addEventListener('submit', (event) => {
+    const target = event.target;
+    event.preventDefault();
+
+    // Get value from user input and use function to get data
+    const city = target.querySelector('#city').value;
+    getLocationData(city);
+});
