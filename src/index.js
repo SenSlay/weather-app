@@ -1,6 +1,6 @@
 import "./style.css";
 import getLocationForecastData from "./api";
-import renderForecastData, {displayLoader} from "./dom";
+import renderForecastData, { displayLoader, displayErrorMsg} from "./dom";
 
 const form = document.getElementById('form');
 
@@ -18,6 +18,6 @@ form.addEventListener('submit', async (event) => {
         const data = await getLocationForecastData(location);
         renderForecastData(data);
     } catch (error) {
-        console.log(error);
+        displayErrorMsg(error);
     }
 });

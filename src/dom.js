@@ -2,20 +2,46 @@ import { getUVColor, getWeatherIcon } from "./utils";
 
 // Display loader
 function displayLoader() {
+    // Display loader element
     const loader = document.querySelector('.loader');
-    loader.style.display = "block";
+    loader.style.display = 'block';
+
+    // Hide error msg
+    const errorMsg = document.querySelector('.error-msg');
+    errorMsg.style.display = 'none';
 
     // Hide forecast container till finished loading
     const forecastCtn = document.querySelector('.forecast-container');
     forecastCtn.style.display = "none";
 }
 
+// Display error msg 
+function displayErrorMsg(error) {
+    // Remove loader
+    const loader = document.querySelector('.loader');
+    loader.style.display = 'none';
+
+    // Hide forecast ctn
+    const forecastCtn = document.querySelector('.forecast-container');
+    forecastCtn.style.display = 'none';
+        
+    // Create error msg el
+    const errorMsg = document.querySelector('.error-msg');
+    errorMsg.textContent = error;
+    errorMsg.style.display  = 'block';
+}
+
 // Render forecast data
 function renderForecastData(data) {
-    // Hide loader once data is ready to be displayed
+    // Hide loader
     const loader = document.querySelector('.loader');
-    loader.style.display = "none";
+    loader.style.display = 'none';
 
+    // Hide error msg
+    const errorMsg = document.querySelector('.error-msg');
+    errorMsg.style.display = 'none';
+
+    // Display forecast ctn
     const forecastCtn = document.querySelector('.forecast-container');
     forecastCtn.style.display = "block";
 
@@ -49,4 +75,4 @@ function renderForecastData(data) {
     sunset.textContent = data.currentConditions.sunset;
 }   
 
-export {renderForecastData as default, displayLoader};
+export { renderForecastData as default, displayLoader, displayErrorMsg };

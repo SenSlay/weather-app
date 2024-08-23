@@ -66,6 +66,13 @@ svg {
     100% { transform: rotate(360deg); }
 }
 
+.error-msg {
+    display: none;
+    color: red;
+    font-weight: 600;
+    font-size: 18px;
+}
+
 .container {
     box-sizing: border-box;
     display: flex;
