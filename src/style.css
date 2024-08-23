@@ -21,6 +21,7 @@ header {
 main {
     flex: 1;
     display: flex;
+    align-items: center;
 }
 
 footer {
@@ -38,21 +39,100 @@ a {
     text-decoration: none;
 }
 
+svg {
+    height: 180px;
+}
+
+.loader {
+    display: none;
+    align-self: center;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid black;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .container {
-    height: 500px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 25px;
+    text-align: center;
+}
+
+.fa-location-dot {
+    font-size: 25px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    align-self: center;
 }
 
 .search-input {
-    border-bottom: 2px solid black;
-    padding: 5px;
+    border-bottom: 1px solid black;
+    padding: 10px;
     font-size: 18px;
+    margin: 0px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+    background-color: #e8f0fe;
+}
+
+.submit-btn {
+    cursor: pointer;
+    background-color: inherit;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: rgb(180, 221, 246);
+}
+
+.submit-btn:hover {
+    background-color: lightskyblue;
+}
+
+.location-header {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.datetime-header {
+    margin-bottom: 20px;
+}
+
+.temperature-header {
+    font-size: 40px;
+}
+
+.weather-condition-p {
+    font-weight: 550;
+    font-size: 24px;
+}
+
+.feels-like-p {
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 .weather-conditions-container {
@@ -60,4 +140,5 @@ a {
     grid-template-columns: 1fr 1fr;
     text-align: center;
     gap: 20px;
+    font-size: 18px;
 }

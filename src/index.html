@@ -14,25 +14,46 @@
 
     <main>
         <div class="container">
-            <form method="POST" id="form">
+            <form method="POST" class="form" id="form">
                 <i class="fa-solid fa-location-dot"></i>
-                <input type="text" id="city" name="city" class="search-input" placeholder="Search City" required>
+                <input type="text" id="location-input" name="location-input" class="search-input" placeholder="Search Location" required>
                 <button type="submit" id="submit" class="submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>   
             </form>
-            <h2 class="location-header" id="location-header">Manila, Philippines</h2>
-            <h3 class="datetime-header" id="datetime-header">August 20, 2024 | 3:35 PM</h3>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.68 80.68" height="190px"><defs><style>.cls-1{fill:#f5b952;}.cls-2,.cls-3{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:4px;}.cls-3{stroke-linecap:square;}</style></defs><title>clear-dayAsset 157colored</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M40.25,15.51A24.8,24.8,0,1,0,65,40.31,24.83,24.83,0,0,0,40.25,15.51Z"/><path class="cls-2" d="M40.25,15.51A24.8,24.8,0,1,0,65,40.31,24.83,24.83,0,0,0,40.25,15.51Z"/><line class="cls-3" x1="40.21" y1="15.51" x2="40.21" y2="2"/><line class="cls-3" x1="40.47" y1="65.17" x2="40.47" y2="78.68"/><line class="cls-3" x1="65.17" y1="40.21" x2="78.68" y2="40.21"/><line class="cls-3" x1="15.51" y1="40.47" x2="2" y2="40.47"/><line class="cls-3" x1="22.7" y1="22.88" x2="13.14" y2="13.32"/><line class="cls-3" x1="57.99" y1="57.81" x2="67.54" y2="67.36"/><line class="cls-3" x1="57.81" y1="22.7" x2="67.36" y2="13.14"/><line class="cls-3" x1="22.88" y1="57.99" x2="13.32" y2="67.54"/></g></g></svg>
-            <h1 class="temperature-header" id="temperature-header">39oC</h1>
-            <h3>Rainy, Partially Cloudy</h3>
-            <h3>Feels like 50oC</h3>
-            <div class="weather-conditions-container">
-                <div>
-                    <h3>Wind Speed</h3>
-                    <p id="windspeed">20m/s</p>
+            <div class="loader"></div>
+            <div class="forecast-container">
+                <h2 class="location-header" id="location">Quezon City, Philippines</h2>
+                <h3 class="datetime-header" id="datetime">August 21, 2024 | 4:00pm</h3>
+                <div class="weather-icon-container" id="weather-icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.07 60.7"><defs><style>.cls-1{fill:#aac7d5;}.cls-2{fill:#cae3f6;}.cls-3{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:4px;}</style></defs><title>cloudyAsset 183colored</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M76.77,50.17a1.29,1.29,0,0,1,.77-.47,24.92,24.92,0,0,0,11.14-4.1c6.44,4.75,11.95,5.4,17.45,2.13,4.78-2.85,7.7-8.5,6.76-13.84-1.38-8-6.52-12-14.43-12.58C95.82,11.46,89.79,4.89,79.75,3.09,68,1,59.45,6.14,53.73,16.33"/><path class="cls-2" d="M63.32,30,63,30a24,24,0,0,0-47,.87q-.44,0-.87,0a14.06,14.06,0,0,0-5.53,1.6A14.44,14.44,0,0,0,7.2,34.07a14.06,14.06,0,0,0-1.17,1A10.11,10.11,0,0,0,4,37.61,13.24,13.24,0,0,0,2.84,40C.28,48,4,53.91,8.23,56.76s11.5,4,17.85-1.57a24,24,0,0,0,27,0A14.67,14.67,0,1,0,63.32,30Z"/><path class="cls-3" d="M76.77,49.53a1.32,1.32,0,0,1,.77-.46A24.92,24.92,0,0,0,88.68,45c6.44,4.75,11.95,5.4,17.45,2.13,4.78-2.85,7.7-8.5,6.76-13.85-1.38-8-6.52-12-14.43-12.57C95.82,10.83,89.79,4.26,79.75,2.46,68,.36,59.45,5.51,53.73,15.7"/><path class="cls-3" d="M63.32,29.35H63a24,24,0,0,0-47,.87l-.87,0a13.89,13.89,0,0,0-5.53,1.6A14.38,14.38,0,0,0,7.2,33.43c-.4.33-.79.67-1.17,1A10.11,10.11,0,0,0,4,37a13.24,13.24,0,0,0-1.13,2.39C.28,47.32,4,53.28,8.23,56.13s11.5,4,17.85-1.57a24,24,0,0,0,27,0A14.67,14.67,0,1,0,63.32,29.35Z"/></g></g></svg>
                 </div>
-                <div>
-                    <h3>Humidity</h3>
-                    <p id="humidity">99%</p>
+                <h1 class="temperature-header" id="temperature">39°C</h1>
+                <p class="weather-condition-p" id="weather-condition">Cloudy with a chance of meatballs</p>
+                <p class="feels-like-p" id="feels-like">Feels like 50°C</p>
+                <div class="weather-conditions-container">
+                    <div>
+                        <h3>Wind Speed</h3>
+                        <p id="wind-speed">20 km/h</p>
+                    </div>
+                    <div>
+                        <h3>Humidity</h3>
+                        <p id="humidity">98%</p>
+                    </div>
+                    <div>
+                        <h3>Chance of Rain</h3>
+                        <p id="chance-of-rain">98%</p>
+                    </div>
+                    <div>
+                        <h3>UV Index</h3>
+                        <p id="uv-index">4</p>
+                    </div>
+                    <div>
+                        <h3>Sunrise</h3>
+                        <p id="sunrise">06:35</p>
+                    </div>
+                    <div>
+                        <h3>Sunset</h3>
+                        <p id="sunset">20:51</p>
+                    </div>
                 </div>
             </div>
         </div>
