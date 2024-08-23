@@ -1,4 +1,5 @@
 import { getUVColor, getWeatherIcon } from "./utils";
+import { format, parse } from "date-fns";
 
 // Display loader
 function displayLoader() {
@@ -59,7 +60,7 @@ function renderForecastData(data) {
     const sunset = document.getElementById('sunset');
     
     location.textContent = data.resolvedAddress;
-    datetime.textContent = data.days[0].datetime + ' | ' + data.currentConditions.datetime;
+    datetime.textContent = format(data.days[0].datetime, 'MMMM dd, yyyy') + ' | ' + format(parse(data.currentConditions.datetime, 'HH:mm:ss', new Date), 'hh:mm a');
     weatherIconCtn.innerHTML = getWeatherIcon(data.currentConditions.icon);
     temperature.textContent = data.currentConditions.temp + '°C';
     weatherCondition.textContent = data.currentConditions.conditions;
@@ -71,8 +72,8 @@ function renderForecastData(data) {
     UVIndex.textContent = data.days[0].uvindex;
     UVIndex.style.backgroundColor = getUVColor(data.days[0].uvindex);
 
-    sunrise.textContent = data.currentConditions.sunrise;
-    sunset.textContent = data.currentConditions.sunset;
+    sunrise.textContent = format(parse(data.currentConditions.sunrise, 'HH:mm:ss', new Date), 'hh:mm a');
+    sunset.textContent = format(parse(data.currentConditions.sunset, 'HH:mm:ss', new Date), 'hh:mm a');
 }   
 
 export { renderForecastData as default, displayLoader, displayErrorMsg };

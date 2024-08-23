@@ -18,6 +18,7 @@ form.addEventListener('submit', async (event) => {
         const data = await getLocationForecastData(location);
         renderForecastData(data);
     } catch (error) {
+        console.log(error);
         displayErrorMsg(error);
     }
 });
