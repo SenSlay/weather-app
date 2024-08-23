@@ -13,7 +13,11 @@ form.addEventListener('submit', async (event) => {
     
     // Display loader as we wait to receive the data from the API
     displayLoader();
-    const data = await getLocationForecastData(location);
 
-    renderForecastData(data);
+    try {
+        const data = await getLocationForecastData(location);
+        renderForecastData(data);
+    } catch (error) {
+        console.log(error);
+    }
 });

@@ -21,15 +21,16 @@ async function getLocationForecastData(location) {
     try {
         const APIkey = 'FNMEC42CA9CLAVPZ58JSRLYG8'
         const response =  await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next7days?unitGroup=metric&key=${APIkey}`, { mode: 'cors' });
-        
+        console.log(response);
         if (!response.ok) {
-            throw new Error('Network response was not ok')
+            throw new Error('Error fetching data')
         }
+
         const forecastData = await response.json();
         console.log(forecastData);
         return forecastData;
     } catch (error) {
-        console.log('Location not found');
+        throw error;
     }
 }
 

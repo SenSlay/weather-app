@@ -142,3 +142,23 @@ svg {
     gap: 20px;
     font-size: 18px;
 }
+
+#uv-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.uv-index-color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
+    background-color: #9E47CC;
+    color: white;
+    font-weight: 600;
+}
