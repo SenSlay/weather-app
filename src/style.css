@@ -1,198 +1,206 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-image: linear-gradient(rgb(76, 192, 238), lightskyblue);
-    box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(rgb(76, 192, 238), lightskyblue);
+  box-sizing: border-box;
 }
 
 header {
-    display: flex;
-    justify-content: center;
-    color: white;
-    padding: 20px;
-    font-size: 20px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
 }
 
 .logo {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .fa-cloud-meatball {
-    margin-right: 10px;
-    font-size: 30px;
+  margin-right: 10px;
+  font-size: 30px;
 }
 
 main {
-    flex: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0px;
-    gap: 5px;
-    background-color: transparent;
-    font-size: 18px;
-    color: white;
-    font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+  gap: 5px;
+  background-color: transparent;
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 svg {
-    height: 180px;
+  height: 180px;
 }
 
 .loader {
-    display: none;
-    align-self: center;
-    border: 8px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 8px solid black;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
+  display: none;
+  align-self: center;
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid black;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
 
 /* Safari */
 @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .error-msg {
-    display: none;
-    color: red;
-    font-weight: 600;
-    font-size: 18px;
+  display: none;
+  color: red;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .container {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 10px;
-    padding: 25px 30px;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px 30px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .fa-location-dot {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .form {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    align-self: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  align-self: center;
 }
 
 .search-input {
-    padding: 10px;
-    font-size: 18px;
-    margin: 0px 10px;
-    border-radius: 15px;
-    font-weight: 600;
-    background-color: #e8f0fe;
+  padding: 10px;
+  font-size: 18px;
+  margin: 0px 10px;
+  border-radius: 15px;
+  font-weight: 600;
+  background-color: #e8f0fe;
 }
 
 .search-input:focus {
-    border: 0;
-    outline: 1px solid black;
+  border: 0;
+  outline: 1px solid black;
 }
 
 .submit-btn {
-    cursor: pointer;
-    background-color: inherit;
-    font-size: 18px;
-    text-align: center;
-    border-radius: 50%;
-    padding: 10px;
-    background-color: rgb(180, 221, 246);
+  cursor: pointer;
+  background-color: inherit;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgb(180, 221, 246);
 }
 
 .submit-btn:hover {
-    background-color: lightskyblue;
+  background-color: lightskyblue;
 }
 
 .location-header {
-    font-size: 30px;
-    margin-bottom: 5px;
+  font-size: 30px;
+  margin-bottom: 5px;
 }
 
 .datetime-header {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .weather-icon-container {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .temperature-header {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 .weather-condition-p {
-    font-weight: 550;
-    font-size: 24px;
+  font-weight: 550;
+  font-size: 24px;
 }
 
 .feels-like-p {
-    font-weight: 500;
-    font-size: 22px;
-    margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 
 .weather-conditions-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-    gap: 20px;
-    font-size: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  gap: 20px;
+  font-size: 18px;
 }
 
 #uv-index {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .uv-index-color {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 50%;
-    height: 28px;
-    width: 28px;
-    color: white;
-    font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  color: white;
+  font-weight: 600;
 }

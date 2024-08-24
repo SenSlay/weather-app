@@ -1,7 +1,7 @@
 // Get weather forecast data on a location by using weather.visualcrossing.com API
 async function getLocationForecastData(location) {
-    // Promise implementation
-    /* 
+  // Promise implementation
+  /* 
     fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=FNMEC42CA9CLAVPZ58JSRLYG8`, {mode: 'cors'})
         .then(function(response) {
             if (!response.ok) {
@@ -17,16 +17,19 @@ async function getLocationForecastData(location) {
         }); 
     */
 
-    // Async/Await Implementation
-    const APIkey = 'FNMEC42CA9CLAVPZ58JSRLYG8'
-    const response =  await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next7days?unitGroup=metric&key=${APIkey}`, { mode: 'cors' });
+  // Async/Await Implementation
+  const APIkey = 'FNMEC42CA9CLAVPZ58JSRLYG8';
+  const response = await fetch(
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next7days?unitGroup=metric&key=${APIkey}`,
+    { mode: 'cors' },
+  );
 
-    if (!response.ok) {
-        throw new Error('Location not found.');
-    }
-    const forecastData = await response.json();
-    console.log(forecastData);
-    return forecastData;
+  if (!response.ok) {
+    throw new Error('Location not found.');
+  }
+  const forecastData = await response.json();
+  console.log(forecastData);
+  return forecastData;
 }
 
 export default getLocationForecastData;
