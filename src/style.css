@@ -6,22 +6,38 @@
 }
 
 body {
-    height: 100vh;
+    height: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    background-color: lightskyblue;
+    background-image: linear-gradient(rgb(76, 192, 238), lightskyblue);
+    box-sizing: border-box;
 }
 
 header {
     display: flex;
+    justify-content: center;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.logo {
+    display: flex;
+    text-align: center;
+    justify-content: center;
     align-items: center;
+}
+
+.fa-cloud-meatball {
+    margin-right: 10px;
+    font-size: 30px;
 }
 
 main {
     flex: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 footer {
@@ -32,6 +48,8 @@ footer {
     gap: 5px;
     background-color: transparent;
     font-size: 18px;
+    color: white;
+    font-weight: 600;
 }
 
 a {
@@ -79,8 +97,9 @@ svg {
     flex-direction: column;
     background-color: white;
     border-radius: 10px;
-    padding: 25px;
+    padding: 25px 30px;
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .fa-location-dot {
@@ -95,13 +114,17 @@ svg {
 }
 
 .search-input {
-    border-bottom: 1px solid black;
     padding: 10px;
     font-size: 18px;
     margin: 0px 10px;
     border-radius: 15px;
     font-weight: 600;
     background-color: #e8f0fe;
+}
+
+.search-input:focus {
+    border: 0;
+    outline: 1px solid black;
 }
 
 .submit-btn {
@@ -124,6 +147,10 @@ svg {
 }
 
 .datetime-header {
+    margin-bottom: 20px;
+}
+
+.weather-icon-container {
     margin-bottom: 20px;
 }
 
@@ -165,7 +192,6 @@ svg {
     border-radius: 50%;
     height: 28px;
     width: 28px;
-    background-color: #9E47CC;
     color: white;
     font-weight: 600;
 }
