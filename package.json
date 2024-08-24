@@ -14,9 +14,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.9.1",
     "css-loader": "^7.1.2",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.0",
+    "prettier": "3.3.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4",
