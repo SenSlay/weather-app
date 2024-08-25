@@ -28,7 +28,6 @@ async function getLocationForecastData(location) {
     throw new Error('Location not found.');
   }
   const forecastData = await response.json();
-  console.log(forecastData);
   return forecastData;
 }
 
