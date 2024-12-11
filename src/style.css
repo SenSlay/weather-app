@@ -1,24 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: hsl(0, 0%, 25%);
+  background-color: hsl(240, 29%, 13%);
   box-sizing: border-box;
 }
 
 header {
   display: flex;
-  justify-content: center;
   color: white;
-  padding: 20px;
   font-size: 20px;
+  margin-bottom: 40px;
 }
 
 .logo {
@@ -29,7 +30,7 @@ header {
 }
 
 .fa-cloud-meatball {
-  margin-right: 10px;
+  margin-right: 15px;
   font-size: 30px;
 }
 
@@ -39,27 +40,25 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
 }
 
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0px;
   gap: 5px;
   background-color: transparent;
-  font-size: 18px;
+  font-size: 16px;
   color: white;
   font-weight: 600;
+  margin-top: 20px;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-svg {
-  height: 180px;
 }
 
 .loader {
@@ -106,29 +105,30 @@ svg {
   flex-direction: column;
   background-image: linear-gradient(45deg, rgb(52, 149, 182), rgb(41, 87, 254), rgb(55, 140, 215) 90%);
   border-radius: 10px;
-  padding: 25px 30px;
-  text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 40px 50px;
+  box-shadow: rgba(241, 241, 241, 0.24) 0px 3px 12px;
 }
 
 .fa-location-dot {
   font-size: 25px;
+  color: hsl(0, 0%, 90%);
 }
 
 .form {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-  align-self: center;
+  margin-bottom: 40px;
 }
 
 .search-input {
-  padding: 10px;
-  font-size: 18px;
-  margin: 0px 10px;
+  padding: 8px 12px;
+  font-size: 16px;
+  margin-right: 10px;
   border-radius: 15px;
   font-weight: 600;
   background-color: #e8f0fe;
+  box-sizing: border-box;
+  font-weight: 500;
 }
 
 .search-input:focus {
@@ -137,34 +137,71 @@ svg {
 }
 
 .submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  font-size: 22px;
   background-color: inherit;
-  font-size: 18px;
   text-align: center;
   border-radius: 50%;
   padding: 10px;
-  background-color: rgb(180, 221, 246);
+  color: hsl(0, 0%, 90%);
+  height: 40px;
+  width: 40px;
 }
 
 .submit-btn:hover {
-  background-color: lightskyblue;
+  background-color: white;
+  color: rgb(55, 140, 215);
 }
+
+/* Forecast container */
+.forecast-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 40px
+}
+
+.forecast-container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  color: hsl(0, 0%, 100%);
+  background-color: hsla(0, 0%, 74%, 0.274);
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.forecast-container > div:first-child svg {
+  height: 100px;
+  align-self: center;
+} 
 
 .location-header {
-  font-size: 30px;
-  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 26px;
+  margin-bottom: 10px;
+  max-width: 400px;
 }
 
-.datetime-header {
+.datetime-p, .feels-like-p {
   margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: hsl(0, 0%, 85%);
 }
 
 .weather-icon-container {
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px 0px;
 }
 
 .temperature-header {
-  font-size: 40px;
+  font-size: 44px;
+  margin-bottom: 0px;
 }
 
 .weather-condition-p {
@@ -172,18 +209,40 @@ svg {
   font-size: 24px;
 }
 
-.feels-like-p {
-  font-weight: 500;
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
 .weather-conditions-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;
-  gap: 20px;
-  font-size: 18px;
+  gap: 10px;
+}
+
+.weather-conditions-container > div {
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: hsla(0, 0%, 74%, 0.274);
+}
+
+.weather-conditions-container > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(0, 0%, 90%);
+  margin-bottom: 5px;
+}
+
+.weather-conditions-container > div > div > i, .weather-conditions-container > div > div > img {
+  margin-right: 10px;
+}
+
+.weather-conditions-container > div > div > h2 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.weather-conditions-container > div > p {
+  font-size: 24px;
+  font-weight: 600;
+  color: hsl(0, 0%, 100%);
 }
 
 #uv-index {
