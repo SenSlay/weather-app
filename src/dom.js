@@ -44,7 +44,7 @@ function renderForecastData(data) {
 
   // Display forecast ctn
   const forecastCtn = document.querySelector('.forecast-container');
-  forecastCtn.style.display = 'block';
+  forecastCtn.style.display = 'flex';
 
   const location = document.getElementById('location');
   const datetime = document.getElementById('datetime');
@@ -62,14 +62,22 @@ function renderForecastData(data) {
   location.textContent = data.resolvedAddress;
   datetime.textContent =
     format(data.days[0].datetime, 'MMMM dd, yyyy') +
-    ' | ' +
+    ', ' +
     format(
       parse(data.currentConditions.datetime, 'HH:mm:ss', new Date()),
       'hh:mm a',
     );
-  weatherIconCtn.innerHTML = getWeatherIcon(data.currentConditions.icon);
-  temperature.textContent = data.currentConditions.temp + '°C';
+
+  const existingSvg = weatherIconCtn.querySelector('svg');
+  
+  if (existingSvg) {
+    // Remove the existing <svg>
+    existingSvg.remove();
+  }
+  
+  weatherIconCtn.insertAdjacentHTML('afterbegin', getWeatherIcon(data.currentConditions.icon));
   weatherCondition.textContent = data.currentConditions.conditions;
+  temperature.textContent = data.currentConditions.temp + '°C';
   feelsLike.textContent = `Feels like ${data.currentConditions.feelslike}°C`;
   windSpeed.textContent = data.currentConditions.windspeed + ' km/h';
   humidity.textContent = data.currentConditions.humidity + '%';
