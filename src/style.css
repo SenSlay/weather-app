@@ -19,7 +19,7 @@ header {
   display: flex;
   color: white;
   font-size: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .logo {
@@ -117,7 +117,7 @@ a {
 .form {
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
 .search-input {
@@ -164,6 +164,10 @@ a {
   gap: 40px
 }
 
+.forecast-container > div:last-child {
+  width: 50%;
+}
+
 .forecast-container > div:first-child {
   display: flex;
   flex-direction: column;
@@ -171,6 +175,7 @@ a {
   background-color: hsla(0, 0%, 74%, 0.274);
   border-radius: 10px;
   padding: 30px;
+  width: 50%;
 }
 
 .forecast-container > div:first-child svg {
@@ -189,7 +194,11 @@ a {
   margin-bottom: 20px;
   font-size: 18px;
   font-weight: 600;
-  color: hsl(0, 0%, 85%);
+  color: hsl(0, 0%, 90%);
+}
+
+.feels-like-p {
+  margin: 0;
 }
 
 .weather-icon-container {
@@ -197,6 +206,7 @@ a {
   align-items: center;
   gap: 30px;
   margin: 40px 0px;
+  flex: 1;
 }
 
 .temperature-header {
@@ -209,11 +219,19 @@ a {
   font-size: 24px;
 }
 
+.forecast-container > div:last-child > h2 {
+  color: hsl(0, 0%, 95%);
+  text-transform: uppercase;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
 .weather-conditions-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;
   gap: 10px;
+  margin-bottom: 30px;
 }
 
 .weather-conditions-container > div {
@@ -262,4 +280,68 @@ a {
   width: 28px;
   color: white;
   font-weight: 600;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+  cursor: grab;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+.scrolling-wrapper .day-card {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsla(0, 0%, 74%, 0.274);
+  border-radius: 10px;
+  padding: 10px;
+  width: 130px;
+  text-align: center;
+}
+
+.scrolling-wrapper.active, .scrolling-wrapper .day-card.active {
+  cursor: grabbing; 
+  user-select: none;
+}
+
+.scrolling-wrapper .day-card > h3 {
+  color: hsl(0, 0%, 90%);
+  margin-bottom: 10px;
+}
+
+.scrolling-wrapper .day-card > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+}
+
+.scrolling-wrapper .day-card > div > svg {
+  height: 50px;
+}
+
+.scrolling-wrapper .day-card > div > .condition {
+  color: hsl(0, 0%, 90%);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.scrolling-wrapper .day-card .temp {
+  color: hsl(0, 0%, 100%);
+  font-weight: 600;
+  font-size: 18px;
 }
