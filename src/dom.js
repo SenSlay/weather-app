@@ -34,6 +34,8 @@ function displayErrorMsg(error) {
 
 // Render forecast data
 function renderForecastData(data) {
+  console.log(data);
+
   // Hide loader
   const loader = document.querySelector('.loader');
   loader.style.display = 'none';
@@ -61,7 +63,7 @@ function renderForecastData(data) {
 
   location.textContent = data.resolvedAddress;
   datetime.textContent =
-    format(data.days[0].datetime, 'MMMM dd, yyyy') +
+    format(data.days[0].datetime, 'E, MMMM dd, yyyy') +
     ', ' +
     format(
       parse(data.currentConditions.datetime, 'HH:mm:ss', new Date()),
@@ -94,6 +96,99 @@ function renderForecastData(data) {
     parse(data.currentConditions.sunset, 'HH:mm:ss', new Date()),
     'hh:mm a',
   );
+
+  // Next 5 Days data
+  const dayCards = document.querySelectorAll('.day-card');
+  
+  let dayCount = 1;
+  
+  dayCards.forEach((dayCard) => {
+    const datetime = dayCard.querySelector('h3');
+    const condition = dayCard.querySelector('.condition');
+    const temp = dayCard.querySelector('.temp');
+    const innerDiv = dayCard.querySelector('div');
+
+    if (!datetime || !condition || !temp) {
+      throw new Error('Code Error');
+    }
+    // Display datetime
+    datetime.textContent = format(data.days[dayCount].datetime, 'E, do');
+
+    // Check if svg exists
+    const existingSvg = dayCard.querySelector('svg');
+    if (existingSvg) {
+      // Remove the existing <svg>
+      existingSvg.remove();
+    }
+    // Insert svg
+    innerDiv.insertAdjacentHTML('afterbegin', getWeatherIcon(data.days[dayCount].icon));
+
+    // Display condition
+    condition.textContent = data.days[dayCount].conditions;
+
+    // Display temp
+    temp.textContent = data.days[dayCount].temp + '°C';
+
+    dayCount++;
+  });
 }
+
+(function scrollDragging() {
+  const scrollingWrapper = document.querySelector('.scrolling-wrapper');
+  const dayCards = document.querySelectorAll('.day-card');
+
+  let isDragging = false;
+  let startX, scrollLeft;
+
+  // Add event listeners to the wrapper
+  scrollingWrapper.addEventListener('mousedown', (e) => {
+    const dayCard = e.target.closest('.day-card');
+  
+    if (dayCard) {
+      // Add 'active' to the closest day-card
+      dayCard.classList.add('active');
+    }
+    isDragging = true;
+    scrollingWrapper.classList.add('active');
+    startX = e.pageX - scrollingWrapper.offsetLeft;
+    scrollLeft = scrollingWrapper.scrollLeft;
+  });
+
+  scrollingWrapper.addEventListener('mouseleave', () => {
+    isDragging = false;
+    scrollingWrapper.classList.remove('active');
+    // Remove 'active' from all day-cards
+    dayCards.forEach((card) => card.classList.remove('active'));
+  });
+
+  scrollingWrapper.addEventListener('mouseup', () => {
+    isDragging = false;
+    scrollingWrapper.classList.remove('active');// Remove 'active' from all day-cards
+    dayCards.forEach((card) => card.classList.remove('active'));
+  });
+
+  scrollingWrapper.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollingWrapper.offsetLeft;
+    const walk = (x - startX) * 2; // Adjust for scroll speed
+    scrollingWrapper.scrollLeft = scrollLeft - walk;
+  });
+
+  // Add event listeners to each card
+  dayCards.forEach((card) => {
+    card.addEventListener('mousedown', () => {
+      scrollingWrapper.classList.add('active');
+    });
+
+    card.addEventListener('mouseup', () => {
+      scrollingWrapper.classList.remove('active');
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      e.preventDefault();
+    });
+  });
+})();
 
 export { renderForecastData as default, displayLoader, displayErrorMsg };
