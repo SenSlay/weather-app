@@ -71,13 +71,16 @@ function renderForecastData(data) {
     );
 
   const existingSvg = weatherIconCtn.querySelector('svg');
-  
+
   if (existingSvg) {
     // Remove the existing <svg>
     existingSvg.remove();
   }
-  
-  weatherIconCtn.insertAdjacentHTML('afterbegin', getWeatherIcon(data.currentConditions.icon));
+
+  weatherIconCtn.insertAdjacentHTML(
+    'afterbegin',
+    getWeatherIcon(data.currentConditions.icon),
+  );
   weatherCondition.textContent = data.currentConditions.conditions;
   temperature.textContent = data.currentConditions.temp + '°C';
   feelsLike.textContent = `Feels like ${data.currentConditions.feelslike}°C`;
@@ -99,9 +102,9 @@ function renderForecastData(data) {
 
   // Next 5 Days data
   const dayCards = document.querySelectorAll('.day-card');
-  
+
   let dayCount = 1;
-  
+
   dayCards.forEach((dayCard) => {
     const datetime = dayCard.querySelector('h3');
     const condition = dayCard.querySelector('.condition');
@@ -121,7 +124,10 @@ function renderForecastData(data) {
       existingSvg.remove();
     }
     // Insert svg
-    innerDiv.insertAdjacentHTML('afterbegin', getWeatherIcon(data.days[dayCount].icon));
+    innerDiv.insertAdjacentHTML(
+      'afterbegin',
+      getWeatherIcon(data.days[dayCount].icon),
+    );
 
     // Display condition
     condition.textContent = data.days[dayCount].conditions;
@@ -143,7 +149,7 @@ function renderForecastData(data) {
   // Add event listeners to the wrapper
   scrollingWrapper.addEventListener('mousedown', (e) => {
     const dayCard = e.target.closest('.day-card');
-  
+
     if (dayCard) {
       // Add 'active' to the closest day-card
       dayCard.classList.add('active');
@@ -163,7 +169,7 @@ function renderForecastData(data) {
 
   scrollingWrapper.addEventListener('mouseup', () => {
     isDragging = false;
-    scrollingWrapper.classList.remove('active');// Remove 'active' from all day-cards
+    scrollingWrapper.classList.remove('active'); // Remove 'active' from all day-cards
     dayCards.forEach((card) => card.classList.remove('active'));
   });
 
