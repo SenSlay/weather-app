@@ -415,3 +415,89 @@ a {
     width: 100% !important;
   }
 }
+
+/* SVG styling (manually seperating them cuz having issues with SCSS) */
+/* Cloudy day */
+.cloudy-day .cls-1 {
+  fill: #aac7d5;
+}
+
+.-cloudy-day .cls-2 {
+  fill: #cae3f6;
+}
+
+.cloudy-day .cls-3 {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 4px;
+}
+
+/* Partly cloudy day */
+.partly-cloudy-day .cls-1 {
+  fill: #f5b952;
+}
+
+.partly-cloudy-day .cls-2 {
+  fill: #aac7d5;
+}
+
+.partly-cloudy-day .cls-3 {
+  fill: #cae3f6;
+}
+
+.partly-cloudy-day .cls-4 {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 4px;
+}
+
+/* Partly cloudy night */
+.partly-cloudy-night .cls-1 {
+  fill: #f5b952;
+}
+
+.partly-cloudy-night .cls-2 {
+  fill: #aac7d5;
+}
+
+.partly-cloudy-night .cls-3 {
+  fill: #cae3f6;
+}
+
+.partly-cloudy-night .cls-4 {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 4px;
+}
+
+/* Clear day */
+.clear-day .cls-1 {
+  fill: #f5b952;
+}
+
+.clear-day .cls-2,
+.clear-day .cls-3 {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 3px;
+}
+
+.clear-day .cls-2 {
+  stroke-linecap: round;
+}
+
+/* Clear night */
+.clear-night .cls-1 {
+  fill: #f5b952;
+}
+
+.clear-night .cls-2 {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 3px;
+}
