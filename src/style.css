@@ -13,6 +13,8 @@ body {
   flex-direction: column;
   background-color: hsl(240, 29%, 13%);
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -34,16 +36,6 @@ header {
   font-size: 30px;
 }
 
-main {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 20px;
-  box-sizing: border-box;
-}
-
 footer {
   display: flex;
   justify-content: center;
@@ -62,6 +54,7 @@ a {
 }
 
 .loader {
+  margin: 40px 0px;
   display: none;
   align-self: center;
   border: 8px solid #f3f3f3;
@@ -103,7 +96,12 @@ a {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(45deg, rgb(52, 149, 182), rgb(41, 87, 254), rgb(55, 140, 215) 90%);
+  background-image: linear-gradient(
+    45deg,
+    rgb(52, 149, 182),
+    rgb(41, 87, 254),
+    rgb(55, 140, 215) 90%
+  );
   border-radius: 10px;
   padding: 40px 50px;
   box-shadow: rgba(241, 241, 241, 0.24) 0px 3px 12px;
@@ -158,10 +156,12 @@ a {
 
 /* Forecast container */
 .forecast-container {
-  display: flex;
+  display: none;
   justify-content: center;
+  flex-direction: row;
   margin-bottom: 20px;
-  gap: 40px
+  gap: 40px;
+  width: 100%;
 }
 
 .forecast-container > div:last-child {
@@ -181,7 +181,7 @@ a {
 .forecast-container > div:first-child svg {
   height: 100px;
   align-self: center;
-} 
+}
 
 .location-header {
   font-weight: 600;
@@ -190,7 +190,8 @@ a {
   max-width: 400px;
 }
 
-.datetime-p, .feels-like-p {
+.datetime-p,
+.feels-like-p {
   margin-bottom: 20px;
   font-size: 18px;
   font-weight: 600;
@@ -203,6 +204,7 @@ a {
 
 .weather-icon-container {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 30px;
   margin: 40px 0px;
@@ -232,12 +234,17 @@ a {
   text-align: center;
   gap: 10px;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .weather-conditions-container > div {
   border-radius: 10px;
   padding: 10px 20px;
   background-color: hsla(0, 0%, 74%, 0.274);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .weather-conditions-container > div > div {
@@ -248,7 +255,8 @@ a {
   margin-bottom: 5px;
 }
 
-.weather-conditions-container > div > div > i, .weather-conditions-container > div > div > img {
+.weather-conditions-container > div > div > i,
+.weather-conditions-container > div > div > img {
   margin-right: 10px;
 }
 
@@ -261,6 +269,7 @@ a {
   font-size: 24px;
   font-weight: 600;
   color: hsl(0, 0%, 100%);
+  flex: 1;
 }
 
 #uv-index {
@@ -288,13 +297,11 @@ a {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   gap: 10px;
+  scroll-behavior: smooth;
   cursor: grab;
   &::-webkit-scrollbar {
     display: none;
   }
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  cursor: grab;
 }
 
 .scrolling-wrapper .day-card {
@@ -309,8 +316,9 @@ a {
   text-align: center;
 }
 
-.scrolling-wrapper.active, .scrolling-wrapper .day-card.active {
-  cursor: grabbing; 
+.scrolling-wrapper.active,
+.scrolling-wrapper .day-card.active {
+  cursor: grabbing;
   user-select: none;
 }
 
@@ -344,4 +352,31 @@ a {
   color: hsl(0, 0%, 100%);
   font-weight: 600;
   font-size: 18px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1169px) {
+  body {
+    align-items: normal;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    padding: 40px 10px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    align-items: center;
+  }
+
+  .forecast-container {
+    flex-direction: column;
+  }
+
+  .forecast-container > div {
+    width: 100% !important;
+  }
 }
