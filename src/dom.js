@@ -36,6 +36,8 @@ function displayErrorMsg(error) {
 function renderForecastData(data) {
   console.log(data);
 
+  changeBackground(data);
+
   // Hide loader
   const loader = document.querySelector('.loader');
   loader.style.display = 'none';
@@ -196,5 +198,38 @@ function renderForecastData(data) {
     });
   });
 })();
+
+// Change background according to time
+function changeBackground(data) {
+  // Parse sunrise and sunset times
+  const sunrise = format(parse(data.currentConditions.sunrise, 'HH:mm:ss', new Date()), 'HH:mm:ss');
+  const sunset = format(parse(data.currentConditions.sunset, 'HH:mm:ss', new Date()), 'HH:mm:ss');
+  const currentTime = data.currentConditions.datetime; // Today's date-time
+
+  const dayLayer = document.querySelector('.day-time-bg');
+  const nightLayer = document.querySelector('.night-time-bg');
+  const body = document.querySelector('body');
+
+  console.log('sunrise = ', sunrise, ', sunset = ', sunset);
+
+  // Compare current time with sunrise and sunset
+  if (currentTime < sunrise || currentTime > sunset) {
+    // Before sunrise or after sunset: Night
+    console.log('dark');
+    if (!nightLayer.style.opacity || nightLayer.style.opacity === '0') {
+      nightLayer.style.opacity = '1'; // Show night layer
+      dayLayer.style.opacity = '0'; // Hide day layer
+      body.classList.add('dark-body-bg');
+    }
+  } else {
+    // Between sunrise and sunset: Day
+    console.log('bright');
+    if (!dayLayer.style.opacity || dayLayer.style.opacity === '0') {
+      dayLayer.style.opacity = '1'; // Show day layer
+      nightLayer.style.opacity = '0'; // Hide night layer
+      body.classList.remove('dark-body-bg');
+    }
+  }
+}
 
 export { renderForecastData as default, displayLoader, displayErrorMsg };
